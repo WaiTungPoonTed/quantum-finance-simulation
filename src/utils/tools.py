@@ -8,7 +8,6 @@ from qiskit_aer import AerSimulator
 def to_ranges(nums):
     if not nums:
         return []
-
     ranges = []
     start = prev = nums[0]
 
