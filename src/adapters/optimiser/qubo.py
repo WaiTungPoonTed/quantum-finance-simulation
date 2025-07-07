@@ -45,8 +45,8 @@ class QuboTwoAssetsOptimiser(OptimisePortfolioWeights):
 
     @property
     @lru_cache(maxsize=None)  # Caches the result after the first computation
-    def mean_returns(self) -> np.array:
-        """Calculates and returns the mean daily returns for each asset."""
+    def annual_returns(self) -> np.array:
+        """Calculates and returns the expected annual returns for each asset."""
         # annual return and default trade-day = 252
         return np.array(self.data.pct_change().dropna().mean()) * 252
 
@@ -64,8 +64,8 @@ class QuboTwoAssetsOptimiser(OptimisePortfolioWeights):
         sigma_1 = self.cov_matrix[0][0]
         sigma_2 = self.cov_matrix[1][1]
         cov_12 = self.cov_matrix[0][1]
-        ret_1 = self.mean_returns[0]
-        ret_2 = self.mean_returns[1]
+        ret_1 = self.annual_returns[0]
+        ret_2 = self.annual_returns[1]
 
         a: float = -self.mu * (sigma_1**2 - 2 * cov_12 + sigma_2**2)
         b: float = ret_1 - ret_2 - self.mu * (2 * cov_12 - 2 * sigma_2**2)
