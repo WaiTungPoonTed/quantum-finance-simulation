@@ -1,2 +1,3 @@
 from .execute_quantum_algorithm.grover_search import QiskitGroverSearch
 from .fetch_stocks_data.yfinance import YFinanceFetchStockData
+from .optimiser.qubo import QuboTwoAssetsOptimiser

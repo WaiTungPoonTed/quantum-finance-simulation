@@ -89,6 +89,5 @@ class QiskitGroverSearch(ExecuteGroverSearch):
         self.qc.measure(range(self.n_qubits), range(self.n_qubits))
         simulator = AerSimulator()
         result = simulator.run(self.qc, shots=shots).result()
-        print(result)
         counts = result.get_counts()
         return dict(counts)
