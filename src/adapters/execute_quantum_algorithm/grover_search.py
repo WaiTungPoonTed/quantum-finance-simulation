@@ -1,8 +1,9 @@
 import numpy as np
 from entities import GroverConfig
-from qiskit import QuantumCircuit
 from qiskit_aer import AerSimulator
 from use_cases import ExecuteGroverSearch
+
+from qiskit import QuantumCircuit
 
 
 class QiskitGroverSearch(ExecuteGroverSearch):

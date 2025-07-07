@@ -1,0 +1,42 @@
+*.log
+*.tmp
+# Ignore Python bytecode files
+# Byte-compiled / optimized / DLL files
+.env
+*.pkl
+*.ipynb
+# Python cache files
+__pycache__/
+*.py[cod]
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Virtual environment directories
+venv/
+# Distribution / packaging
+.Python
+# PyInstaller
+#  PyInstaller creates a build/ directory and a dist/ directory
+build/
+dist/
+# Pytest cache
+.cache
+# Coverage reports
+.coverage
+# mypy
+.mypy_cache/
+# Pyre type checker
+.pyre/
+# Cython debug symbols
+cython_debug/
+# VS Code settings
+.vscode/
+# PyCharm settings
+.idea/
+# Local configuration files
+*.local
+# Logs
+logs/
+# Temporary files
+*.tmp
+
