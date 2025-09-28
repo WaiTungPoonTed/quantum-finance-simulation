@@ -35,22 +35,6 @@ def handle_optimise_portfolio(payload: Assets) -> dict:
     optimised_portfolio = qubo_two_assets_optimiser.optimise()
     print(f"Optimised portfolio: {optimised_portfolio}")
 
-    
-    
-    
-    # --- MOCK LOGIC ---
-    # In the future, this is where you will call your use_cases and adapters.
-    # For now, we return a hardcoded JSON response.
-    # mock_response = {
-    #     "message": "Data processed successfully by the REAL FastAPI service",
-    #     "input_parameters": payload,
-    #     "optimised_weights": {
-    #         "assets.tickers[0]": 0.55,  # Use different numbers to prove it's from Python
-    #         "assets.tickers[1]": 0.45,
-    #     },
-    #     "expected_return": 0.28,
-    #     "expected_risk": 0.15,
-    # }
     weights: list[np.float] = [stock[0] for stock in optimised_portfolio]
     
     portfolio = stock_data.pct_change() * np.array(weights)
@@ -68,6 +52,5 @@ def handle_optimise_portfolio(payload: Assets) -> dict:
         ),
         'stock_data': df.to_dict()
     }
-    # print(stock_data.to_dict())
     print("Sending mock response from FastAPI.")
     return mock_response
