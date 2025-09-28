@@ -59,6 +59,9 @@ class QuboTwoAssetsOptimiser(OptimisePortfolioWeights):
 
     def QuadraticProgram(self):
         model = Model()
+        """
+        Utility := E(r) - mu*Var(r)
+        """
         # define integer variables in 0..2^n -1 instead of binary_var
         x0 = model.integer_var(lb=0, ub=2**self.n_qubits - 1, name="x0")
         sigma_1 = self.cov_matrix[0][0]
